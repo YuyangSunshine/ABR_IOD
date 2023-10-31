@@ -85,3 +85,5 @@ bash scripts/run_SI.sh
   year={2023}
 }
 ```
+# Acknowledgments
+Our repository is based on the amazing work of @fcdl94[MMA](https://github.com/fcdl94/MMA) and @CanPeng123 [FasterILOD](https://github.com/CanPeng123/Faster-ILOD) and on the [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) library. We thank the authors and the contibutors of these projects for releasing their code.
