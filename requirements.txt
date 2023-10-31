@@ -1,0 +1,11 @@
+ninja
+yacs
+cython
+matplotlib
+tqdm
+opencv-python
+tensorboard==2.10.0
+numpy==1.21.5
+scipy==1.7.3
+six==1.16.0
+setuptools==59.5.0
