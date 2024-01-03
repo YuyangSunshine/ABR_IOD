@@ -175,13 +175,7 @@ def calculate_roi_distillation_loss(soften_results, target_results, cls_preproce
         normalized_target_scores = torch.sub(target_scores, class_wise_target_scores_avg)
         modified_soften_scores = normalized_target_scores[:, : num_of_distillation_categories]  # include background
         modified_target_scores = normalized_soften_scores[:, : num_of_distillation_categories]  # include background
-    elif cls_preprocess =='inclusive_distillation':
-        pros_labels = cat([proposal.get_field("labels") for proposal in soften_proposal], dim=0)
-        bg_index = torch.nonzero(pros_labels==0).squeeze(1)
-        new_index = torch.nonzero(pros_labels>num_of_distillation_categories).squeeze(1)
-        modified_soften_scores = soften_scores[cat([bg_index, new_index], dim=0), :]
-        modified_target_scores = target_scores[cat([bg_index, new_index], dim=0), :]
-    elif cls_preprocess == 'none':  # FOR UNBIAS CROSS ENTROPY USE THIS
+    elif cls_preprocess == 'inclusive_distillation':  # FOR UNBIAS CROSS ENTROPY USE THIS
         modified_soften_scores = soften_scores
         modified_target_scores = target_scores
     else:
@@ -229,10 +223,8 @@ def calculate_roi_distillation_loss(soften_results, target_results, cls_preproce
 def calculate_roi_distillation_losses(soften_results, target_results, dist='l2', soften_proposal=None):
 
     if dist == 'id':
-        if soften_proposal is not None:
+        if soften_proposal == None:
             cls_preprocess = 'inclusive_distillation'
-        else:
-            cls_preprocess = 'none'
         cls_loss = 'unbiased-cross-entropy'
         bbs_loss = 'l2'
         temperature = 1
