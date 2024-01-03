@@ -99,7 +99,7 @@ def do_train(model_source, model_target, data_loader, optimizer, scheduler, chec
         ##############################################
         # 1. Inclusive distillation loss
         if cfg.DIST.ALPHA > 0:
-            source_proposal = None
+            # source_proposal = None
             distillation_losses = cfg.DIST.ALPHA * calculate_roi_distillation_losses(soften_result, target_result, dist=dist_type, soften_proposal=source_proposal)
         else:
             distillation_losses = torch.tensor(0.).to(device)
