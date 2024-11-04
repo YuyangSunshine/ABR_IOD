@@ -54,7 +54,7 @@ For example, if you want to train ABR under single incremental step `task=15-5`,
 ``` shell script
 task=15-5
 name=ABR_LR001_BS4_ALPHA05_BETA1_GAMMA1_INIT
-exp -t ${task} -n ${name} -s ${step} --feat afd -gamma 1.0 --uce --dist_type id -alpha 0.5 -beta 1.0 -mb 2000 -mt mean -cvd 0,1
+exp -t ${task} -n ${name} -s ${step} --feat ard -gamma 1.0 --uce --dist_type id -alpha 0.5 -beta 1.0 -mb 2000 -mt mean -cvd 0,1
 ``` 
 , and then run:
 
