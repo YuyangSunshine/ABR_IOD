@@ -15,7 +15,7 @@ shopt -s expand_aliases
 #
 #for s in {1..2};
 #do
-#    exp -t ${task} -n ${name} -s $s --feat afd -gamma 1.0 --uce --dist_type id -alpha 1.0 -beta 1.0 -mb $mb -mt $mt -cvd 0,1
+#    exp -t ${task} -n ${name} -s $s --feat ard -gamma 1.0 --uce --dist_type id -alpha 1.0 -beta 1.0 -mb $mb -mt $mt -cvd 0,1
 #    python tools/prototype_box_selection.py -cvd 0 -n ${name} -t ${task} -s $s -mb $mb -mt $mt -iss
 #  echo Done
 #done
@@ -25,7 +25,7 @@ shopt -s expand_aliases
 #name=ABR_LR001_BS4_ALPHA05_BETA1_GAMMA1
 #for s in {1..4};
 #do
-#    exp -t ${task} -n ${name} -s $s --feat afd -gamma 1.0 --uce --dist_type id -alpha 0.5 -beta 1.0 -mb 2000 -mt mean -cvd 0,1
+#    exp -t ${task} -n ${name} -s $s --feat ard -gamma 1.0 --uce --dist_type id -alpha 0.5 -beta 1.0 -mb 2000 -mt mean -cvd 0,1
 #    python tools/prototype_box_selection.py -cvd 0 -n ${name} -t ${task} -s $s -mb 2000 -mt mean -iss
 #  echo Done
 #done
